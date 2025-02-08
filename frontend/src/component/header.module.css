@@ -1,0 +1,27 @@
+.default {
+  margin: 36px;
+  margin-left: 80px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.title {
+  font-family: "Pretendard Variable";
+  display: inline-flex;
+  width: 100%;
+  font-size: 40px;
+  font-weight: 600;
+  gap: 15px;
+  align-items: center; /* 가운데 */
+}
+
+.menu {
+  font-family: "Pretendard Variable";
+  display: flex;
+  align-items: center; /* 가운데 */
+  gap: 100px;
+  white-space: nowrap; /* 글자가 줄바꿈되지 않도록 설정 */
+  margin-right: 30px;
+}
