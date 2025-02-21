@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./main.module.css";
+import styles from "./mainOne.module.css";
 import { BsChevronCompactDown } from "react-icons/bs";
 
-const Main = () => {
+const MainOne = () => {
   return (
     <div>
       <div className={styles.content}>
@@ -17,10 +17,8 @@ const Main = () => {
           <BsChevronCompactDown />
         </div>
       </div>
-
-      {/* <img className={styles.img} src="./main.jpeg"></img> */}
     </div>
   );
 };
 
-export default Main;
+export default MainOne;
