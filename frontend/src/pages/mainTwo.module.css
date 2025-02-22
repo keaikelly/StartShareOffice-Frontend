@@ -1,0 +1,119 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #ffffff;
+}
+
+.text {
+  color: #000;
+  font-family: "Pretendard Variable";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-top: 5%;
+  margin: auto;
+  text-shadow: 10px 10px 7px rgba(0, 0, 0, 0.1);
+}
+
+.phone {
+  border-radius: 60px;
+  border: 8px solid #404040;
+  background: #fff;
+  box-shadow: 10px 13px 7px rgba(0, 0, 0, 0.25);
+  width: 330px;
+  height: 530px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.notch {
+  width: 127px;
+  height: 15px;
+  border-radius: 0 0 12px 12px;
+  background: #404040;
+  margin: auto;
+  margin-top: 0px;
+}
+
+.phoneNum {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #010101;
+  font-family: "Pretendard Variable";
+  font-size: 30px;
+  font-weight: 600;
+  justify-content: center;
+  gap: 35px;
+}
+
+.phoneNumIcon {
+  position: relative;
+  top: 4px;
+  margin-right: 10px; /* ✅ 아이콘과 텍스트 사이 간격 조정 */
+}
+
+.account {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-bottom: 10px;
+  color: #010101;
+  font-family: "Pretendard Variable";
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px; /* 175% */
+  gap: 10px;
+}
+
+.accountIcon {
+  font-size: 30px;
+  display: block; /* ✅ 아이콘을 블록 요소로 변경 (더 정렬이 정확해짐) */
+  position: relative;
+  top: 3px; /* ✅ 아이콘을 살짝 아래로 내려서 정확하게 맞춤 */
+}
+
+.accountText {
+  font-size: 16px;
+}
+
+.bar {
+  background: #404040;
+  margin: auto;
+  stroke-width: 5px;
+  stroke: #000;
+  width: 106px;
+  height: 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.down {
+  margin-bottom: 1px;
+  font-size: 70px;
+  animation: shake 2s infinite ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
