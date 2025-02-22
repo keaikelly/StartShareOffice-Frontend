@@ -31,8 +31,6 @@ const item = [
   },
 ];
 
-const title = [1, 2, 3, 4];
-
 const MainThree = () => {
   return (
     <div>

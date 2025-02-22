@@ -1,0 +1,14 @@
+.display {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  margin-top: 70px;
+  gap: 50px;
+}
+
+.map {
+  width: 700px;
+  height: 500px;
+  border-radius: 20px;
+  margin-left: 130px;
+}
