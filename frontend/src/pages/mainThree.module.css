@@ -1,0 +1,33 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ✅ 가로 2칸 */
+  grid-template-rows: repeat(2, auto); /* ✅ 세로 2칸 */
+  gap: 150px; /* ✅ 요소 간 간격 */
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  position: relative; /* ✅ 요소를 정상적으로 배치 */
+  padding-top: 100px;
+}
+
+.gridItem {
+  /* font-size: 48px; */
+}
+
+.title {
+  font-family: "Pretendard Variable";
+  font-size: 44px;
+  font-weight: 700;
+  gap: 20px;
+  display: flex;
+  text-shadow: 10px 10px 7px rgba(0, 0, 0, 0.1);
+}
+
+.descrip {
+  color: #6b6b6b;
+  font-family: "Pretendard Variable";
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 18px;
+  width: 420px;
+}
