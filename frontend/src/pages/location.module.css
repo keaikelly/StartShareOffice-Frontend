@@ -11,4 +11,68 @@
   height: 500px;
   border-radius: 20px;
   margin-left: 130px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box {
+  background: #efefef;
+  border-radius: 10px;
+  width: 400px;
+  height: 240px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.address {
+  font-family: "Pretendard Variable";
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: auto;
+  line-height: 1.5;
+}
+
+.copy {
+  border-radius: 10px;
+  background: #282f58;
+  width: 115px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 5%;
+  margin-bottom: auto;
+  padding-bottom: 3px;
+  cursor: pointer;
+  border: none; /* 버튼 특유 볼록 효과 없앰 */
+}
+.copy:hover {
+  background: rgb(19, 26, 54);
+  transform: scale(1.05); /* ✅ 약간 확대 */
+}
+.copy:active {
+  transform: scale(0.95); /* ✅ 살짝 눌리는 효과 */
+}
+
+.photo {
+  width: 400px;
+  height: 240px;
+  border-radius: 10px;
+  object-fit: cover; /* ✅ 크롭 효과 적용 */
+  margin-bottom: auto;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
