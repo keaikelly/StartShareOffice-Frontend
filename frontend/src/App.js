@@ -4,6 +4,7 @@ import "./App.css";
 import MainFullPage from "./pages/mainfullpage";
 import Location from "./pages/location";
 import RoomInfo from "./pages/roomInfo";
+import Community from "./pages/community";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<MainFullPage />} />{" "}
         <Route path="/location" element={<Location />} />
         <Route path="/roomInfo" element={<RoomInfo />} />
+        <Route path="/community" element={<Community />} />
       </Routes>
     </BrowserRouter>
   );
