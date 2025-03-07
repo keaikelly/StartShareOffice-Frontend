@@ -15,6 +15,9 @@
   font-weight: 600;
   gap: 15px;
   align-items: center; /* 가운데 */
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .menu {
@@ -24,4 +27,19 @@
   gap: 100px;
   white-space: nowrap; /* 글자가 줄바꿈되지 않도록 설정 */
   margin-right: 30px;
+}
+
+.btn {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.btn:hover {
+  font-weight: bold;
+}
+
+.btnActive {
+  font-size: 16px; /* ✅ 크기 증가 */
+  font-weight: bold; /* ✅ 글씨 볼드 처리 */
+  color: #3c5785;
 }
