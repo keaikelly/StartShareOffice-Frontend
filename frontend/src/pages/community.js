@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./community.module.css";
+import { getBlogData, getNoticeData, setNoticeData } from "../api/api";
 
 const blogArray = [
   { title: "더미제목1", text: "더미내용1" },
@@ -24,6 +25,7 @@ const Community = () => {
     }
     setNoticeArr([...noticeArr, msg]);
     setMsg("");
+    setNoticeData();
   };
 
   const msgChange = (event) => {
@@ -32,8 +34,26 @@ const Community = () => {
   };
 
   useEffect(() => {
-    console.log("[공지목록]: ", noticeArr);
-  }, [noticeArr]); // ✅ noticeArr 변경될 때마다 실행
+    const fetchBlogData = async () => {
+      try {
+        const response = await getBlogData();
+        console.log("[블로그]: ", response);
+      } catch (error) {
+        console.error("Error fetching blogData: ", error);
+      }
+    };
+    fetchBlogData();
+
+    const fetchNoticeData = async () => {
+      try {
+        const responseNotice = await getNoticeData();
+        console.log("[공지]: ", responseNotice);
+      } catch (error) {
+        console.error("Error fetching noticeData: ", error);
+      }
+    };
+    fetchNoticeData();
+  }, []); // 외부에서 가져온건 의존성 배열에 x
 
   return (
     <div className={styles.container}>
