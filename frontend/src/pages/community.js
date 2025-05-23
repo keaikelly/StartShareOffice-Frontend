@@ -11,21 +11,39 @@ const blogArray = [
 ];
 
 const Community = () => {
-  const [msg, setMsg] = useState("");
+  const [noticeTitle, setTitle] = useState("");
+  const [noticeMsg, setMsg] = useState("");
+  const newNotice = { title: noticeTitle, content: noticeMsg };
   const [noticeArr, setNoticeArr] = useState([
-    "사장님들의 의견을 적극수용하여",
-    "인테리어를 개인룸으로 리뉴얼 했습니다~",
-    "사장님들의 의견을 적극수용하여 인테리어를 개인룸으로 리뉴얼 했습니다~",
-  ]);
+    {
+      title: "리뉴얼",
+      content: "사장님들의 의견을 적극수용하여 ...",
+    },
+    {
+      title: "제목2",
+      content: "내용2",
+    },
+  ]); //기본구조
 
   const send = () => {
-    if (msg === "") {
+    if (noticeTitle === "") {
+      alert("제목을 입력해주세요!");
+      return;
+    }
+    if (noticeMsg === "") {
       alert("내용을 입력해주세요!");
       return;
     }
-    setNoticeArr([...noticeArr, msg]);
+    setNoticeArr([...noticeArr, newNotice]); //프론트 배열
+
+    setTitle("");
     setMsg("");
-    setNoticeData();
+    setNoticeData(noticeTitle, noticeMsg); //추가한거만 전송
+  };
+
+  const titleChange = (event) => {
+    setTitle(event.target.value);
+    console.log(event.target.value);
   };
 
   const msgChange = (event) => {
@@ -36,7 +54,7 @@ const Community = () => {
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
-        const response = await getBlogData();
+        const response = await getBlogData("kahee9905");
         console.log("[블로그]: ", response);
       } catch (error) {
         console.error("Error fetching blogData: ", error);
@@ -48,6 +66,7 @@ const Community = () => {
       try {
         const responseNotice = await getNoticeData();
         console.log("[공지]: ", responseNotice);
+        setNoticeArr(responseNotice.data.data);
       } catch (error) {
         console.error("Error fetching noticeData: ", error);
       }
@@ -73,9 +92,15 @@ const Community = () => {
         <div className={styles.box}>
           <div className={styles.inputContainer}>
             <textarea
-              className={styles.input}
+              className={styles.inputTitle}
+              placeholder="공지 제목을 입력하세요"
+              value={noticeTitle}
+              onChange={titleChange}
+            />
+            <textarea
+              className={styles.inputMsg}
               placeholder="공지 메세지를 입력하세요"
-              value={msg}
+              value={noticeMsg}
               onChange={msgChange}
             />
             <button className={styles.sendBtn} onClick={send}>
@@ -86,8 +111,8 @@ const Community = () => {
           {noticeArr.map((content, index) => (
             <div key={index} className={styles.noticeContainer}>
               <div className={styles.noticeText}>
-                <h2>[공지]</h2>
-                {content}
+                <h2>{content.title}</h2>
+                {content.content}
               </div>
             </div>
           ))}
