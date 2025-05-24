@@ -1,29 +1,21 @@
 import React, { useEffect, useState } from "react";
 import styles from "./community.module.css";
 import { getBlogData, getNoticeData, setNoticeData } from "../api/api";
-
-const blogArray = [
-  { title: "더미제목1", text: "더미내용1" },
-  { title: "더미제목2", text: "더미내용2" },
-  { title: "더미제목3", text: "더미내용3" },
-  { title: "더미제목4", text: "더미내용4" },
-  { title: "더미제목5", text: "더미내용5" },
-];
+import { Navigate } from "react-router-dom";
 
 const Community = () => {
+  const [responseBlog, setResponsBlog] = useState([
+    // { title: "더미제목1", text: "더미내용1" },
+    // { title: "더미제목2", text: "더미내용2" },
+    // { title: "더미제목3", text: "더미내용3" },
+    // { title: "더미제목4", text: "더미내용4" },
+    // { title: "더미제목5", text: "더미내용5" },
+  ]);
+
   const [noticeTitle, setTitle] = useState("");
   const [noticeMsg, setMsg] = useState("");
   const newNotice = { title: noticeTitle, content: noticeMsg };
-  const [noticeArr, setNoticeArr] = useState([
-    {
-      title: "리뉴얼",
-      content: "사장님들의 의견을 적극수용하여 ...",
-    },
-    {
-      title: "제목2",
-      content: "내용2",
-    },
-  ]); //기본구조
+  const [noticeArr, setNoticeArr] = useState([]); //기본구조
 
   const send = () => {
     if (noticeTitle === "") {
@@ -34,11 +26,11 @@ const Community = () => {
       alert("내용을 입력해주세요!");
       return;
     }
-    setNoticeArr([...noticeArr, newNotice]); //프론트 배열
+    setNoticeArr([...noticeArr, newNotice]); //프론트 배열에 추가
 
     setTitle("");
     setMsg("");
-    setNoticeData(noticeTitle, noticeMsg); //추가한거만 전송
+    setNoticeData(noticeTitle, noticeMsg); //객체를 post
   };
 
   const titleChange = (event) => {
@@ -54,8 +46,9 @@ const Community = () => {
   useEffect(() => {
     const fetchBlogData = async () => {
       try {
-        const response = await getBlogData("kahee9905");
-        console.log("[블로그]: ", response);
+        const responseBlog = await getBlogData("kahee9905");
+        console.log("[블로그]: ", responseBlog);
+        setResponsBlog(responseBlog.data);
       } catch (error) {
         console.error("Error fetching blogData: ", error);
       }
@@ -78,10 +71,10 @@ const Community = () => {
     <div className={styles.container}>
       <div className={styles.box}>
         <h1 className={styles.blog}>BLOG</h1>
-        {blogArray.map((content, index) => (
+        {responseBlog.map((content, index) => (
           <div key={index} className={styles.blogContainer}>
-            <div className={styles.blogTitle}>{content.title}</div>
-            <div className={styles.blogText}>{content.text}</div>
+            {/* <div className={styles.blogTitle}>{content.title}</div> */}
+            <button className={styles.blogText}>{content.title}</button>
           </div>
         ))}
       </div>

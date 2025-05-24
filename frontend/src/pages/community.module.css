@@ -46,6 +46,9 @@
   font-weight: 400;
   letter-spacing: -0.3px;
   margin: 5%;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .notice {
