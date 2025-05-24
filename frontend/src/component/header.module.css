@@ -6,6 +6,8 @@
   flex-direction: row;
   justify-content: center;
   height: 6vh; /* 화면 높이의 6% */
+  z-index: 10000; /*fullpage보다 앞으로*/
+  position: relative; /* or absolute/fixed if needed */
 }
 
 .title {

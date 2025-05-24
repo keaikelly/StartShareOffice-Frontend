@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./community.module.css";
 import { getBlogData, getNoticeData, setNoticeData } from "../api/api";
-import { Navigate } from "react-router-dom";
 
 const Community = () => {
   const [responseBlog, setResponsBlog] = useState([
