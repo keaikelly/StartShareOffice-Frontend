@@ -83,14 +83,15 @@
 }
 
 .inputContainer {
-  position: relative;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
   width: 450px;
 }
 
 .inputTitle {
-  margin-top: 10px;
-  width: 310px;
-  min-height: 20px;
+  width: 210px;
+  height: 15px;
   border-radius: 10px;
   border: 1px solid black;
   padding: 10px 60px 10px 15px;
@@ -98,7 +99,7 @@
 }
 
 .inputMsg {
-  width: 310px;
+  width: 370px;
   min-height: 50px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -107,16 +108,23 @@
   resize: vertical; /* ✅ 사용자가 세로 방향으로만 크기 조절 가능 */
 }
 
+.inputPw {
+  width: 80px;
+  height: 15px;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
 .sendBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
+  /* position: absolute; */
   right: 10px; /* ✅ 오른쪽 정렬 */
   top: 45%; /* ✅ 정확한 중앙 정렬 */
-  transform: translateY(-50%); /* ✅ 세로 중앙 정렬 */
   width: 35px;
-  height: 120px;
+  height: 35px;
   background-color: #1f3a68;
   color: white;
   border-radius: 10px;

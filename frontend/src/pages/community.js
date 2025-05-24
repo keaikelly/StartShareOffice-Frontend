@@ -12,12 +12,17 @@ const Community = () => {
     // { title: "더미제목5", text: "더미내용5" },
   ]);
 
+  const [pw, setPw] = useState("");
   const [noticeTitle, setTitle] = useState("");
   const [noticeMsg, setMsg] = useState("");
   const newNotice = { title: noticeTitle, content: noticeMsg };
   const [noticeArr, setNoticeArr] = useState([]); //기본구조
 
   const send = () => {
+    if (pw === "") {
+      alert("관리자번호를 입력해주세요!");
+      return;
+    }
     if (noticeTitle === "") {
       alert("제목을 입력해주세요!");
       return;
@@ -26,11 +31,21 @@ const Community = () => {
       alert("내용을 입력해주세요!");
       return;
     }
-    setNoticeArr([...noticeArr, newNotice]); //프론트 배열에 추가
 
-    setTitle("");
-    setMsg("");
-    setNoticeData(noticeTitle, noticeMsg); //객체를 post
+    if (pw === process.env.REACT_APP_PW) {
+      alert("공지가 등록되었습니다!");
+      setNoticeArr([...noticeArr, newNotice]); //프론트 배열에 추가
+
+      setTitle("");
+      setMsg("");
+      setNoticeData(noticeTitle, noticeMsg); //객체를 post
+    } else {
+      alert("비밀번호를 다시 입력해주세요.");
+    }
+  };
+
+  const pwChange = (event) => {
+    setPw(event.target.value);
   };
 
   const titleChange = (event) => {
@@ -90,16 +105,24 @@ const Community = () => {
               value={noticeTitle}
               onChange={titleChange}
             />
-            <textarea
-              className={styles.inputMsg}
-              placeholder="공지 메세지를 입력하세요"
-              value={noticeMsg}
-              onChange={msgChange}
+            <input
+              className={styles.inputPw}
+              placeholder="관리자번호"
+              value={pw}
+              onChange={pwChange}
+              type="password"
             />
+
             <button className={styles.sendBtn} onClick={send}>
               ➜
             </button>
           </div>
+          <textarea
+            className={styles.inputMsg}
+            placeholder="공지 메세지를 입력하세요"
+            value={noticeMsg}
+            onChange={msgChange}
+          />
 
           {noticeArr.map((content, index) => (
             <div key={index} className={styles.noticeContainer}>
