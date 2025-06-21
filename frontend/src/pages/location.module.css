@@ -14,6 +14,12 @@
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
 }
 
+.marker {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+}
+
 .right {
   display: flex;
   flex-direction: column;
